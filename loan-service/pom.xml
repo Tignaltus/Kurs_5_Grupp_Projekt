@@ -8,7 +8,7 @@
 		<version>4.0.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.assignment</groupId>
+	<groupId>com.assignment.loanService</groupId>
 	<artifactId>bookLibrary</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
