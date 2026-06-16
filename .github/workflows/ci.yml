@@ -6,8 +6,47 @@ on:
   workflow_dispatch:
 
 jobs:
+  detect-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      has_registry: ${{ steps.detect.outputs.has_registry }}
+      has_gateway: ${{ steps.detect.outputs.has_gateway }}
+      has_book_service: ${{ steps.detect.outputs.has_book_service }}
+      has_loan_service: ${{ steps.detect.outputs.has_loan_service }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Detect project folders
+        id: detect
+        run: |
+          if [ -f service-registry/pom.xml ]; then
+            echo "has_registry=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_registry=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -f api-gateway/pom.xml ]; then
+            echo "has_gateway=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_gateway=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -f book-service/pom.xml ]; then
+            echo "has_book_service=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_book_service=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -f loan-service/pom.xml ]; then
+            echo "has_loan_service=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_loan_service=false" >> $GITHUB_OUTPUT
+          fi
+
   service-registry:
-    if: ${{ hashFiles('service-registry/pom.xml') != '' }}
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_registry == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -27,7 +66,8 @@ jobs:
         run: mvn -B clean verify
 
   api-gateway:
-    if: ${{ hashFiles('api-gateway/pom.xml') != '' }}
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_gateway == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -47,7 +87,8 @@ jobs:
         run: mvn -B clean verify
 
   book-service:
-    if: ${{ hashFiles('book-service/pom.xml') != '' }}
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_book_service == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -67,7 +108,8 @@ jobs:
         run: mvn -B clean verify
 
   loan-service:
-    if: ${{ hashFiles('loan-service/pom.xml') != '' }}
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_loan_service == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
