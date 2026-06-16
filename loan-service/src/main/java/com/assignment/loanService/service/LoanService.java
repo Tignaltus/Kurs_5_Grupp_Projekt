@@ -1,5 +1,6 @@
 package com.assignment.loanService.service;
 
+import com.assignment.loanService.client.BookClient;
 import com.assignment.loanService.dto.common.PagedResponse;
 import com.assignment.loanService.exception.BookAlreadyLoanedException;
 import com.assignment.loanService.dto.book.v1.BookDTO;
@@ -21,25 +22,16 @@ import java.time.LocalDate;
 public class LoanService {
 
     private final LoanRepository loanRepository;
-    private final RestClient restClient;
+    private final BookClient bookClient;
 
-    public LoanService(LoanRepository loanRepository) {
+    public LoanService(LoanRepository loanRepository, BookClient bookClient) {
         this.loanRepository = loanRepository;
-        this.restClient= RestClient.create();
+        this.bookClient = bookClient;
     }
 
     @Transactional
     public LoanResponse createLoan(LoanRequest request) {
-        BookDTO book = restClient.get()
-                .uri(
-                        "http://localhost:8080/api/v1/books/{id}",
-                        request.getBookId())
-                .retrieve()
-                .body(BookDTO.class);
-
-        if(book == null) {
-            throw new BookNotFoundException("Book with id " + request.getBookId() + " not found");
-        }
+        BookDTO book = bookClient.getBookById(request.getBookId());
 
         if (loanRepository.existsByBookIdAndReturnDateIsNull(request.getBookId())) {
             throw new BookAlreadyLoanedException("Book is already on loan");
@@ -74,12 +66,7 @@ public class LoanService {
 
     private LoanResponse mapToResponse(Loan loan) {
 
-        BookDTO book = restClient.get()
-                .uri("http://localhost:8080/api/v1/books/{id}",
-                        loan.getBookId()
-                )
-                .retrieve()
-                .body(BookDTO.class);
+        BookDTO book = bookClient.getBookById(loan.getBookId());
 
         String title = book != null ? book.title() : "Book not found";
 
