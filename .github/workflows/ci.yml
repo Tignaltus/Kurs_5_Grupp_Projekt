@@ -1,0 +1,129 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  detect-projects:
+    runs-on: ubuntu-latest
+    outputs:
+      has_registry: ${{ steps.detect.outputs.has_registry }}
+      has_gateway: ${{ steps.detect.outputs.has_gateway }}
+      has_book_service: ${{ steps.detect.outputs.has_book_service }}
+      has_loan_service: ${{ steps.detect.outputs.has_loan_service }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Detect project folders
+        id: detect
+        run: |
+          if [ -f service-registry/pom.xml ]; then
+            echo "has_registry=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_registry=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -f api-gateway/pom.xml ]; then
+            echo "has_gateway=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_gateway=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -f book-service/pom.xml ]; then
+            echo "has_book_service=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_book_service=false" >> $GITHUB_OUTPUT
+          fi
+
+          if [ -f loan-service/pom.xml ]; then
+            echo "has_loan_service=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_loan_service=false" >> $GITHUB_OUTPUT
+          fi
+
+  service-registry:
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_registry == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./service-registry
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build service-registry
+        run: mvn -B clean verify
+
+  api-gateway:
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_gateway == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api-gateway
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build api-gateway
+        run: mvn -B clean verify
+
+  book-service:
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_book_service == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./book-service
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build book-service
+        run: mvn -B clean verify
+
+  loan-service:
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_loan_service == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./loan-service
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build loan-service
+        run: mvn -B clean verify
