@@ -1,0 +1,87 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  service-registry:
+    if: ${{ hashFiles('service-registry/pom.xml') != '' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./service-registry
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build service-registry
+        run: mvn -B clean verify
+
+  api-gateway:
+    if: ${{ hashFiles('api-gateway/pom.xml') != '' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api-gateway
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build api-gateway
+        run: mvn -B clean verify
+
+  book-service:
+    if: ${{ hashFiles('book-service/pom.xml') != '' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./book-service
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build book-service
+        run: mvn -B clean verify
+
+  loan-service:
+    if: ${{ hashFiles('loan-service/pom.xml') != '' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./loan-service
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build loan-service
+        run: mvn -B clean verify
