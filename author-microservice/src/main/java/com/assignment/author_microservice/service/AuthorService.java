@@ -7,6 +7,8 @@ import com.assignment.author_microservice.model.Author;
 import com.assignment.author_microservice.repository.AuthorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AuthorService {
 
@@ -28,4 +30,16 @@ public class AuthorService {
 
         return new AuthorResponse(author.getId(), author.getName(), 0);
     }
+
+    public List<AuthorResponse> getAllAuthors() {
+        return authorRepository.findAll()
+                .stream()
+                .map(author -> new AuthorResponse(
+                        author.getId(),
+                        author.getName(),
+                        0
+                ))
+                .toList();
+    }
+
 }
