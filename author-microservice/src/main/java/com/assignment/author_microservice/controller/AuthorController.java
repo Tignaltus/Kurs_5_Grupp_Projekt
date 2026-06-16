@@ -2,6 +2,7 @@ package com.assignment.author_microservice.controller;
 
 import com.assignment.author_microservice.dto.AuthorRequest;
 import com.assignment.author_microservice.dto.AuthorResponse;
+import com.assignment.author_microservice.dto.AuthorWithBooksResponse;
 import com.assignment.author_microservice.service.AuthorService;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -37,5 +38,11 @@ public class AuthorController {
     public ResponseEntity<List<AuthorResponse>> getAllAuthors() {
         return ResponseEntity.ok(authorService.getAllAuthors());
     }
+
+    @GetMapping("/{id}/details")
+    public AuthorWithBooksResponse getAuthorWithBooks(@PathVariable Long id) {
+        return authorService.getAuthorWithBooks(id);
+    }
+
 
 }
