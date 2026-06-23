@@ -2,6 +2,7 @@ package com.assignment.bookService.service;
 
 import com.assignment.bookService.model.Book;
 import com.assignment.bookService.repository.BookRepository;
+import com.assignment.bookService.exception.BookNotFoundException;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +39,7 @@ public class BookService {
                     book.setPublicationYear(updatedBook.getPublicationYear());
                     return bookRepository.save(book);
                 })
-                .orElseThrow(() -> new RuntimeException("Book not found"));
+                .orElseThrow(() -> new BookNotFoundException("Book not found"));
     }
 
     public void deleteBook(Long id) {
