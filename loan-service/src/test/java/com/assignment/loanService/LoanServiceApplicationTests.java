@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
@@ -16,6 +17,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import tools.jackson.databind.ObjectMapper;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.jwt;
 
 
 @SpringBootTest
@@ -36,7 +38,7 @@ class LoanServiceApplicationTests {
     void getAllLoans_returnsOk() throws Exception {
 
         mockMvc.perform(get("/api/v1/loans")
-                        .with(httpBasic("admin", "password")))
+                        .with(jwt().authorities(new SimpleGrantedAuthority("ROLE_USER"))))
                 .andExpect(status().isOk());
     }
 
@@ -44,7 +46,7 @@ class LoanServiceApplicationTests {
     void createLoan_withoutBookId_returnsBadRequest() throws Exception {
 
         mockMvc.perform(post("/api/v1/loans")
-                        .with(httpBasic("admin", "password"))
+                        .with(jwt().authorities(new SimpleGrantedAuthority("ROLE_USER")))
                         .contentType(APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(Map.of())))
                 .andExpect(status().isBadRequest());
