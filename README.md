@@ -29,7 +29,7 @@ Api-gateway är en frontdörr till att komma åt alla microservices. Man behöve
 
 author-microservice:
 port: 8081
-Author har frikopplats som fristående program från tidigare monolit, har nu endast tillgång till sin egna service/model/repo/controller. Vid behov kopplas till andra med en Client med hjälp av dto för säkerhet.. 
+Author har frikopplats som fristående program från tidigare monolit, har nu endast tillgång till sin egna service/model/repo/controller. Vid behov kopplas till andra med en Client med hjälp av dto för säkerhet..
 
 book-service:
 port: 8083
