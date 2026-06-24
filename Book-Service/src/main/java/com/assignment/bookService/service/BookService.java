@@ -4,6 +4,8 @@ import com.assignment.bookService.model.Book;
 import com.assignment.bookService.repository.BookRepository;
 import com.assignment.bookService.exception.BookNotFoundException;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +33,7 @@ public class BookService {
         return bookRepository.findById(id);
     }
 
+    @CachePut(value = "books", key = "#id")
     public Book updateBook(Long id, Book updatedBook) {
         return bookRepository.findById(id)
                 .map(book -> {
@@ -42,6 +45,7 @@ public class BookService {
                 .orElseThrow(() -> new BookNotFoundException("Book not found"));
     }
 
+    @CacheEvict(value = "books", key = "#id")
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
     }
