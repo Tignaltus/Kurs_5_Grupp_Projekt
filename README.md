@@ -86,7 +86,8 @@ Det är mellansteget som hjälper microservice kommunicera med varandra. Det är
 GET http://localhost:8761
 ```
 
-## Tester för alla microservices - Jonatan Emil Dahl:
+## Tester för microservices - Jonatan Emil Dahl:
+Skapade Tester för alla microservices som var tillgängliga. Följande exempel finns nedan.
 ```Bash
 createLoan_withoutBookId_returnsBadRequest()
 getAllLoans_returnsOk()
@@ -94,6 +95,9 @@ contextLoads()
 createAuthor_andGetAuthorById_returnsAuthor()
 createAuthor(String name)
 ```
+
+## Github Actions - Jonatan Emil Dahl
+Hjälp till med att fixa Github actions och justera workflow. Vilket gör att vi kan kolla vad som kan gå fel innan vi mergar ihop kod mellan branches.
 
 ---
 
