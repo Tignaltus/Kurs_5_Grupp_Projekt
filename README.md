@@ -62,8 +62,8 @@ Användarnamn och Lösenord i JSON format:
 ```
 ```JSON
 {
-"username": "user",
-"password": "password"
+  "username": "user",
+  "password": "password"
 }
 ```
 Kopiera token resultatet och använd som Authorization bearer-token **UTAN CITAT-TECKEN**
@@ -185,8 +185,8 @@ HEADERS: Content-Type: application/json
 BODY:
 ```JSON
 {
-"username": "user",
-"password": "password"
+  "username": "user",
+  "password": "password"
 }
 ```
 
