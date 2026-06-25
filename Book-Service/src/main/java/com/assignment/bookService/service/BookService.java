@@ -38,7 +38,8 @@ public class BookService {
         return bookRepository.findById(id)
                 .map(book -> {
                     book.setTitle(updatedBook.getTitle());
-                    book.setAuthor(updatedBook.getAuthor());
+                    book.setAuthorId(updatedBook.getAuthorId());
+                    book.setAuthorId(updatedBook.getAuthorId());
                     book.setPublicationYear(updatedBook.getPublicationYear());
                     return bookRepository.save(book);
                 })
@@ -48,5 +49,9 @@ public class BookService {
     @CacheEvict(value = "books", key = "#id")
     public void deleteBook(Long id) {
         bookRepository.deleteById(id);
+    }
+
+    public List<Book> getBooksByAuthorId(Long authorId) {
+        return bookRepository.findByAuthorId(authorId);
     }
 }

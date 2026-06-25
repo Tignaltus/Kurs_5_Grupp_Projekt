@@ -62,3 +62,34 @@ Agilt med gitflow, och också kommunicerat direkt med varandra via discord för 
 Vi har delat upp arbetet så alla fick vars en del för att streamline arbetet.
 Jonathan Isaksson har jobbat huvudsakligen på API-Gateway. Rasha Knifdi har jobbat huvudsakligen på author-microservice. Konstantinos Nascos har jobbat huvudsakligen på loan-microservice. Felix Liden har jobbat huvudsakligen på service-registry. Markus Nikolic har jobbat huvudsakligen på book-microservice. Jonatan Dahl har jobbat i alla microservices med huvudsakligen tester och Github Actions(IOM vi inte hade behov av 6 microservice).
 Vi har alla hjälpts åt med Pull Request och Issues.
+
+
+När allt är igång, för att testa med postman:
+
+POST http://localhost:8080/auth/login
+
+HEADERS: Content-Type: application/json
+BODY:
+{
+"username": "admin",
+"password": "password"
+}
+
+kopiera token och använd som Authorization bearer-token UTAN CITATTECKEN
+
+POST http://localhost:8080/api/v1/authors
+
+{
+"name": "Tolkien"
+}
+
+POST http://localhost:8080/api/v1/books
+
+{
+"title": "LotR",
+"author": "Tolkien",
+"authorId": 1,
+"publicationYear": 1950
+}
+
+GET http://localhost:8080/api/v1/books/author/1
