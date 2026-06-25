@@ -1,0 +1,67 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_21\" project-jdk-name=\"21\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>\r\n
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision f94d47f74aa74426e3b937f4ace2a976182c3c53)
++++ b/.idea/misc.xml	(date 1782294195999)
+@@ -5,10 +5,11 @@
+     <option name="originalFiles">
+       <list>
+         <option value="$PROJECT_DIR$/pom.xml" />
++        <option value="$PROJECT_DIR$/api-gateway/pom.xml" />
+       </list>
+     </option>
+   </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_21" project-jdk-name="21" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
+-</project>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <module name=\"Service_registry\" />\r\n        <module name=\"bookLibrary\" />\r\n        <module name=\"author-microservice\" />\r\n        <module name=\"loan-service\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n  </component>\r\n  <component name=\"JavacSettings\">\r\n    <option name=\"ADDITIONAL_OPTIONS_OVERRIDE\">\r\n      <module name=\"Service_registry\" options=\"-parameters\" />\r\n      <module name=\"author-microservice\" options=\"-parameters\" />\r\n      <module name=\"bookLibrary\" options=\"-parameters\" />\r\n      <module name=\"loan-service\" options=\"-parameters\" />\r\n    </option>\r\n  </component>\r\n</project>\r\n
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision f94d47f74aa74426e3b937f4ace2a976182c3c53)
++++ b/.idea/compiler.xml	(date 1782294196003)
+@@ -6,6 +6,7 @@
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+         <outputRelativeToContentRoot value="true" />
++        <module name="api-gateway" />
+         <module name="Service_registry" />
+         <module name="bookLibrary" />
+         <module name="author-microservice" />
+@@ -16,9 +17,10 @@
+   <component name="JavacSettings">
+     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+       <module name="Service_registry" options="-parameters" />
++      <module name="api-gateway" options="-parameters" />
+       <module name="author-microservice" options="-parameters" />
+       <module name="bookLibrary" options="-parameters" />
+       <module name="loan-service" options="-parameters" />
+     </option>
+   </component>
+-</project>
++</project>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"Encoding\">\r\n    <file url=\"file://$PROJECT_DIR$/Service_registry/src/main/java\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/author-microservice/src/main/java\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/bookLibrary/src/main/java\" charset=\"UTF-8\" />\r\n    <file url=\"file://$PROJECT_DIR$/loan-service/src/main/java\" charset=\"UTF-8\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+--- a/.idea/encodings.xml	(revision f94d47f74aa74426e3b937f4ace2a976182c3c53)
++++ b/.idea/encodings.xml	(date 1782294196010)
+@@ -2,6 +2,7 @@
+ <project version="4">
+   <component name="Encoding">
+     <file url="file://$PROJECT_DIR$/Service_registry/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
+     <file url="file://$PROJECT_DIR$/author-microservice/src/main/java" charset="UTF-8" />
+     <file url="file://$PROJECT_DIR$/bookLibrary/src/main/java" charset="UTF-8" />
+     <file url="file://$PROJECT_DIR$/loan-service/src/main/java" charset="UTF-8" />

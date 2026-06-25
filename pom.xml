@@ -16,5 +16,7 @@
         <module>bookLibrary</module>
         <module>loan-service</module>
         <module>Service_registry</module>
+        <module>api-gateway</module>
+        <module>Book-Service</module>
     </modules>
 </project>

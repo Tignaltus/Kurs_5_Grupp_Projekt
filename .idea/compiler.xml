@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="api-gateway" />
         <module name="Service_registry" />
+        <module name="book-service" />
         <module name="bookLibrary" />
         <module name="author-microservice" />
         <module name="loan-service" />
@@ -16,7 +18,9 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Service_registry" options="-parameters" />
+      <module name="api-gateway" options="-parameters" />
       <module name="author-microservice" options="-parameters" />
+      <module name="book-service" options="-parameters" />
       <module name="bookLibrary" options="-parameters" />
       <module name="loan-service" options="-parameters" />
     </option>
