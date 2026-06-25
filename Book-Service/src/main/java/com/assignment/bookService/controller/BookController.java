@@ -77,4 +77,9 @@ public class BookController {
         bookService.deleteBook(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/author/{authorId}")
+    public ResponseEntity<List<Book>> getBooksByAuthor(@PathVariable Long authorId) {
+        return ResponseEntity.ok(bookService.getBooksByAuthorId(authorId));
+    }
 }
