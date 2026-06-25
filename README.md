@@ -66,7 +66,7 @@ Vi har alla hjälpts åt med Pull Request och Issues.
 
 När allt är igång, för att testa med postman:
 
-POST http://localhost:8080/auth/login
+POST http://localhost:8080/auth/login -klar
 
 HEADERS: Content-Type: application/json
 BODY:
@@ -77,13 +77,13 @@ BODY:
 
 kopiera token och använd som Authorization bearer-token UTAN CITATTECKEN
 
-POST http://localhost:8080/api/v1/authors
+POST http://localhost:8080/api/v1/authors -klar
 
 {
 "name": "Tolkien"
 }
 
-POST http://localhost:8080/api/v1/books
+POST http://localhost:8080/api/v1/books -klar
 
 {
 "title": "LotR",
@@ -92,5 +92,45 @@ POST http://localhost:8080/api/v1/books
 "publicationYear": 1950
 }
 
-GET http://localhost:8080/api/v1/books/author/1
-.
+GET http://localhost:8080/api/v1/books/author/1 -klar
+
+
+POST http://localhost:8080/api/v1/loans -klar
+
+{
+"bookId": 1,
+"borrowerName": "Test User"
+}
+
+GET http://localhost:8080/api/v1/authors/1 -klar
+
+GET http://localhost:8080/api/v1/authors -klar
+
+PUT http://localhost:8080/api/v1/books/1 -klar
+
+{
+"title": "LotR del1/3",
+"author": "Tolkien",
+"authorId": 1,
+"publicationYear": 1950
+}
+
+DELETE http://localhost:8080/api/v1/books/1 -klar
+
+GET http://localhost:8080/api/v1/books/author/1 -klar
+
+Som User:
+
+
+POST http://localhost:8080/auth/login -klar
+
+HEADERS: Content-Type: application/json
+BODY:
+{
+"username": "user",
+"password": "password"
+}
+
+GET http://localhost:8080/api/v1/books -klar
+
+DELETE http://localhost:8080/api/v1/books/1 -403 klar(utgår från att resterande fungerar då också) med fel nyckel blir det 401 istället.
