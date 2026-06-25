@@ -66,6 +66,7 @@ Användarnamn och Lösenord i JSON format:
 "password": "password"
 }
 ```
+Kopiera token resultatet och använd som Authorization bearer-token **UTAN CITAT-TECKEN**
 
 ## author-microservice - Rasha Knifdi:
 #### port: `loaclhost:8081`
