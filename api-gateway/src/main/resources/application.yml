@@ -12,18 +12,18 @@ spring:
       server:
         webflux:
           routes:
-            #- id: book-service
-             # uri: lb://BOOK-SERVICE
-              #predicates:
-                #- Path=/api/v1/books/**
+            - id: book-service
+              uri: lb://BOOK-SERVICE
+              predicates:
+                - Path=/api/v1/books/**
 
             - id: author-service
-              uri: lb://author-service
+              uri: lb://AUTHOR-SERVICE
               predicates:
                 - Path=/api/v1/authors/**
 
             - id: loan-service
-              uri: lb://loan-service
+              uri: lb://LOAN-SERVICE
               predicates:
                 - Path=/api/v1/loans/**
 

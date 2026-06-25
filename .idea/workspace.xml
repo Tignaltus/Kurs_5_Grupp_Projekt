@@ -4,19 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5bf98b00-7267-43cf-94f2-a5e332e2249e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Book-Service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Book-Service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/java/com/assignment/loanService/client/BookClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/java/com/assignment/loanService/client/BookClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loan-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/loan-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="b8cb0283-2ff6-41cf-8613-1c2f102ecd71" name="Changes" comment="Readme, grunder sammanställda, ska finskrivas.">
+      <change afterPath="$PROJECT_DIR$/Book-Service/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/author/AuthorRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/author/AuthorResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/book/BookRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/book/BookResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/book/v2/BookListResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/book/v2/BookResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/common/PagedResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/loan/LoanRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Book-Service/src/main/java/com/assignment/bookService/dto/loan/LoanResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="139" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -26,137 +36,102 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Coffe44&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "konstantinosnascos"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Tignaltus/Kurs_5_Grupp_Projekt.git&quot;,
-    &quot;accountId&quot;: &quot;c9682e1e-b6fb-4613-aa69-c1187669283b&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Tignaltus/Kurs_5_Grupp_Projekt.git",
+    "accountId": "a0b771bb-cfce-4581-9aec-74e3f64fef8a"
   }
-}</component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
-      </MavenGeneralSettings>
-    </option>
-  </component>
-  <component name="McpProjectServerCommands">
-    <commands />
-    <urls />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 6
-}</component>
-  <component name="ProjectId" id="3Fbb4MxVhqRGz695HjDWpOHwyOF" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="3FWhUenTt5EjvZu8m93GvokphnR" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "RunOnceActivity.MCP Project settings loaded": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "git-widget-placeholder": "Service-registry",
+    "git-widget-placeholder": "github-actions-fix",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "run.configurations.included.in.services": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunDashboard">
-    <option name="configurationTypes">
-      <set>
-        <option value="KtorApplicationConfigurationType" />
-        <option value="MicronautRunConfigurationType" />
-        <option value="QuarkusRunConfigurationType" />
-        <option value="SpringBootApplicationConfigurationType" />
-      </set>
-    </option>
-  </component>
-  <component name="RunManager" selected="Spring Boot.ServiceRegistryApplication">
+  <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="bookLibrary" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="bookLibrary" />
       <option name="filePath" />
       <method v="2" />
-    </configuration>
-    <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="api-gateway" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AuthorMicroserviceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="author-microservice" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.assignment.author_microservice.AuthorMicroserviceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookLibraryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="bookLibrary" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.assignment.bookLibrary.BookLibraryApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="BookServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="book-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.assignment.bookService.BookServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoanServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="loan-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.assignment.loanService.LoanServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ServiceRegistryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="Service_registry" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.service_registry.ServiceRegistryApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
     </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.25557.131" />
+        <option value="bundled-js-predefined-d6986cc7102b-b598e85cdad2-JavaScript-IU-252.25557.131" />
       </set>
     </attachedChunks>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="5bf98b00-7267-43cf-94f2-a5e332e2249e" name="Changes" comment="" />
-      <created>1782346532024</created>
+      <changelist id="b8cb0283-2ff6-41cf-8613-1c2f102ecd71" name="Changes" comment="" />
+      <created>1782196750579</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1782346532024</updated>
-      <workItem from="1782346540111" duration="218000" />
+      <updated>1782196750579</updated>
+      <workItem from="1782196752116" duration="12449000" />
     </task>
+    <task id="LOCAL-00001" summary="Readme, grunder sammanställda, ska finskrivas.">
+      <option name="closed" value="true" />
+      <created>1782302535136</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1782302535136</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Readme, grunder sammanställda, ska finskrivas.">
+      <option name="closed" value="true" />
+      <created>1782302571074</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1782302571074</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ändrat i book till authorid, ändray bookclient med ai snabbt, så får se om blir rätt.&#10;    public ResponseEntity&lt;List&lt;Book&gt;&gt; getBooksByAuthor(@PathVariable Long authorId) {&#10;i bookcontroller.  i bookrepo     List&lt;Book&gt; findByAuthorId(Long authorId); i bookservice     public List&lt;Book&gt; getBooksByAuthorId(Long authorId) {&#10;.&#10;alla steg som är klara i readme och testade hittills">
+      <option name="closed" value="true" />
+      <created>1782370034786</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1782370034786</updated>
+    </task>
+    <task id="LOCAL-00004" summary="glömde skicka med bookcontroller">
+      <option name="closed" value="true" />
+      <created>1782370054176</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1782370054176</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +149,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="unversioned files" />
-    <option name="LAST_COMMIT_MESSAGE" value="unversioned files" />
+    <MESSAGE value="Readme, grunder sammanställda, ska finskrivas." />
+    <MESSAGE value="ändrat i book till authorid, ändray bookclient med ai snabbt, så får se om blir rätt.&#10;    public ResponseEntity&lt;List&lt;Book&gt;&gt; getBooksByAuthor(@PathVariable Long authorId) {&#10;i bookcontroller.  i bookrepo     List&lt;Book&gt; findByAuthorId(Long authorId); i bookservice     public List&lt;Book&gt; getBooksByAuthorId(Long authorId) {&#10;.&#10;alla steg som är klara i readme och testade hittills" />
+    <MESSAGE value="glömde skicka med bookcontroller" />
+    <option name="LAST_COMMIT_MESSAGE" value="glömde skicka med bookcontroller" />
   </component>
 </project>
