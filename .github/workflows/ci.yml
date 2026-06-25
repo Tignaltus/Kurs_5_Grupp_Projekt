@@ -13,6 +13,7 @@ jobs:
       has_gateway: ${{ steps.detect.outputs.has_gateway }}
       has_book_service: ${{ steps.detect.outputs.has_book_service }}
       has_loan_service: ${{ steps.detect.outputs.has_loan_service }}
+      has_author_service: ${{ steps.detect.outputs.has_author_service }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -20,7 +21,7 @@ jobs:
       - name: Detect project folders
         id: detect
         run: |
-          if [ -f service-registry/pom.xml ]; then
+          if [ -f Service_registry/pom.xml ]; then
             echo "has_registry=true" >> $GITHUB_OUTPUT
           else
             echo "has_registry=false" >> $GITHUB_OUTPUT
@@ -32,7 +33,7 @@ jobs:
             echo "has_gateway=false" >> $GITHUB_OUTPUT
           fi
 
-          if [ -f book-service/pom.xml ]; then
+          if [ -f Book-Service/pom.xml ]; then
             echo "has_book_service=true" >> $GITHUB_OUTPUT
           else
             echo "has_book_service=false" >> $GITHUB_OUTPUT
@@ -43,14 +44,20 @@ jobs:
           else
             echo "has_loan_service=false" >> $GITHUB_OUTPUT
           fi
+          
+          if [ -f author-microservice/pom.xml ]; then
+            echo "has_author_service=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_author_service=false" >> $GITHUB_OUTPUT
+          fi
 
-  service-registry:
+  Service_registry:
     needs: detect-projects
     if: ${{ needs.detect-projects.outputs.has_registry == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./service-registry
+        working-directory: ./Service_registry
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -62,7 +69,7 @@ jobs:
           java-version: '21'
           cache: maven
 
-      - name: Build service-registry
+      - name: Build Service_registry
         run: mvn -B clean verify
 
   api-gateway:
@@ -86,13 +93,13 @@ jobs:
       - name: Build api-gateway
         run: mvn -B clean verify
 
-  book-service:
+  Book-Service:
     needs: detect-projects
     if: ${{ needs.detect-projects.outputs.has_book_service == 'true' }}
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./book-service
+        working-directory: ./Book-Service
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -104,7 +111,7 @@ jobs:
           java-version: '21'
           cache: maven
 
-      - name: Build book-service
+      - name: Build Book-Service
         run: mvn -B clean verify
 
   loan-service:
@@ -126,4 +133,25 @@ jobs:
           cache: maven
 
       - name: Build loan-service
+        run: mvn -B clean verify
+
+  author-microservice:
+    needs: detect-projects
+    if: ${{ needs.detect-projects.outputs.has_author_service == 'true' }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./author-microservice
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Build author-microservice
         run: mvn -B clean verify
