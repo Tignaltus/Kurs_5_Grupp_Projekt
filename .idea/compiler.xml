@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="api-gateway" target="21" />
+      <module name="author-microservice" target="17" />
+      <module name="bookLibrary" target="21" />
+      <module name="Kurs_5_Grupp_Projekt" target="1.5" />
+      <module name="loan-service" target="21" />
+      <module name="Service_registry" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
